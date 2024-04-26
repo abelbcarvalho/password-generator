@@ -44,8 +44,8 @@ Here you can see the class structure to send data to back-end.
 | attribute      | type | default |
 |:---------------|:-----|:--------|
 | numbers        | bool | None    |
-| lowcase        | bool | None    |
-| upcase         | bool | None    |
+| low_case       | bool | None    |
+| up_case        | bool | None    |
 | special_char_1 | bool | None    |
 | special_char_2 | bool | None    |
 | length         | int  | 0       |
