@@ -6,6 +6,6 @@ from src.utility.password_checker import PasswordChecker
 class ServicePassword:
     def generate_password(self, password: Password) -> str | None:
         if not PasswordChecker.check_password(password=password):
-            raise PasswordCheckerException("error: password length or password params whole false")
+            raise PasswordCheckerException("error: generate length or generate params whole false")
 
         return None
