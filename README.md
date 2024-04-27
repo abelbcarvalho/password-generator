@@ -17,10 +17,10 @@ Generate strong passwords.
 The generated password can contain:
 
 1. Numbers `0 ... 9`;
-2. Lowcase `a ... z`;
-3. Upcase `A ... Z`;
-4. Special Characters 1 `$#,.]:[(;)}|!{?+=-*/%&@`;
-5. Special Characters 2 `¢¬§£><\~^`;
+2. Low Case `a ... z`;
+3. Up Case `A ... Z`;
+4. Special Characters 1 `!#$%&()*+,-./:;=?@[]{|}`;
+5. Special Characters 2 `<>^~¢£§¬`;
 
 ### Dependencies
 1. Python3;
@@ -57,30 +57,30 @@ Description about the steps this software works. It's divided between *User* and
 
 1. You choose the characters you want to use;
 2. You select the length of your required password;
-3. You send these informations to back-end;
+3. You send these information to back-end;
 
 > **System Requirements:**
 
-4. System receives the `model` sent by User;
-5. So this model is checked, (at least 1 attribute must be `True` value);
-5.1. If valid not valid, launch a new exception;
-6. count the length and required values range;
-7. Use `random.choice` method to get a value and join to the password string;
-8. Set the **generated password** to clipboard and returns to the *highest level;*
-9. Set the **generated password** to be seen by user;
+1. System receives the `model` sent by User;
+2. So this model is checked, (at least 1 attribute must be `True` value); 
+   1. If valid not valid, launch a new exception;
+3. count the length and required values range;
+4. Use `random.choice` method to get a value and join to the password string;
+5. Set the **generated password** to clipboard and returns to the *highest level;*
+6. Set the **generated password** to be seen by user;
 
 ### System Steps
 A resume of [*how it works?*](#how-it-works)
 
-1. User choose paramenters;
-2. Check paramenters;
+1. User choose parameters;
+2. Check parameters;
 3. Generate password;
 4. Transfer to *clipboard* area;
 5. Return the generated password;
 6. Let it be seen by user;
 
 ### The End
-It's a simple project task to make an userful software.
+It's a simple project task to make an useful software.
 
 -- *Abel Carvalho*
 
