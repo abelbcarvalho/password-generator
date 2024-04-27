@@ -1,7 +1,7 @@
 from tkinter import (
     Tk, Frame, Entry, Label,
     Checkbutton, Scale, Button,
-    HORIZONTAL, LEFT
+    HORIZONTAL, LEFT, IntVar
 )
 
 from tkinter.messagebox import (
@@ -9,6 +9,8 @@ from tkinter.messagebox import (
 )
 
 from clipboard import copy as set_to_transfer_area
+
+from src.model.password import Password
 
 
 def _copy_success() -> None:
@@ -19,6 +21,8 @@ def _copy_success() -> None:
 
 
 class PasswordGenerator:
+    _password: Password
+
     def __init__(self, main: Tk):
         font_regular = ("Arial", 14)
         length = 80
@@ -26,6 +30,9 @@ class PasswordGenerator:
         main.title("Password Generator")
         main.geometry("720x360")
         main.resizable(False, False)
+
+        # new password instance
+        self._password = Password()
 
         # title frame
         self.title_frame = Frame(main)
@@ -53,34 +60,45 @@ class PasswordGenerator:
         self.character_frame = Frame(main)
         self.character_frame.pack()
 
+        self.value_check_numbers = IntVar()
+        self.value_check_low_case = IntVar()
+        self.value_check_up_case = IntVar()
+        self.value_check_special_one = IntVar()
+        self.value_check_special_two = IntVar()
+
         self.check_numbers = Checkbutton(self.character_frame)
         self.check_numbers["text"] = "Numbers: 0 ... 9                                "
         self.check_numbers["font"] = font_regular
         self.check_numbers["width"] = 360
+        self.check_numbers["variable"] = self.value_check_numbers
         self.check_numbers.pack()
 
         self.check_low_case = Checkbutton(self.character_frame)
         self.check_low_case["text"] = "Lowercase: a ... z                              "
         self.check_low_case["font"] = font_regular
         self.check_low_case["width"] = 360
+        self.check_low_case["variable"] = self.value_check_low_case
         self.check_low_case.pack()
 
         self.check_up_case = Checkbutton(self.character_frame)
         self.check_up_case["text"] = "Uppercase: A ... Z                             "
         self.check_up_case["font"] = font_regular
         self.check_up_case["width"] = 360
+        self.check_up_case["variable"] = self.value_check_up_case
         self.check_up_case.pack()
 
         self.check_special_one = Checkbutton(self.character_frame)
         self.check_special_one["text"] = "Special One: !#$%&()*+,-./:;=?@[]{|}"
         self.check_special_one["font"] = font_regular
         self.check_special_one["width"] = 360
+        self.check_special_one["variable"] = self.value_check_special_one
         self.check_special_one.pack()
 
         self.check_special_two = Checkbutton(self.character_frame)
         self.check_special_two["text"] = "Special Two: <>^~¢£§¬                    "
         self.check_special_two["font"] = font_regular
         self.check_special_two["width"] = 360
+        self.check_special_two["variable"] = self.value_check_special_two
         self.check_special_two.pack()
 
         # entry field with the generated password
@@ -117,7 +135,15 @@ class PasswordGenerator:
         main.mainloop()
 
     def _generate_password(self, event) -> None:
-        pass
+        boolean: tuple = (False, True)
+
+        self._password.length = self.scale_length.get()
+
+        self._password.numbers = boolean[self.value_check_numbers.get()]
+        self._password.low_case = boolean[self.value_check_low_case.get()]
+        self._password.up_case = boolean[self.value_check_up_case.get()]
+        self._password.special_char_1 = boolean[self.value_check_special_one.get()]
+        self._password.special_char_2 = boolean[self.value_check_special_two.get()]
 
     def _copy_to_transfer_area(self, event) -> None:
         content_password = self.entry_passwd.get()
