@@ -1,3 +1,6 @@
+from src.model.password import Password
+
+
 class Generate:
     _numbers: tuple[str, ...]
     _low_case: tuple[str, ...]
@@ -11,3 +14,6 @@ class Generate:
         self._up_case = tuple(chr(v) for v in range(65, 91))
         self._special_char_1 = tuple("!#$%&()*+,-./:;=?@[]{|}")
         self._special_char_2 = tuple("<>^~¢£§¬")
+
+    def generate_password(self, password: Password) -> str | None:
+        return None
