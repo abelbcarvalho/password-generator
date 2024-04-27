@@ -6,11 +6,14 @@ from tkinter import (
 
 from tkinter.messagebox import (
     showinfo,
+    showerror,
 )
 
 from clipboard import copy as set_to_transfer_area
 
+from src.exceptions.exceptions import PasswordCheckerException
 from src.model.password import Password
+from src.controller.controller_password import ControllerPassword
 
 
 def _copy_success() -> None:
@@ -22,6 +25,7 @@ def _copy_success() -> None:
 
 class PasswordGenerator:
     _password: Password
+    _controller_password: ControllerPassword
 
     def __init__(self, main: Tk):
         font_regular = ("Arial", 14)
@@ -31,8 +35,9 @@ class PasswordGenerator:
         main.geometry("720x360")
         main.resizable(False, False)
 
-        # new password instance
+        # new password and controller instances
         self._password = Password()
+        self._controller_password = ControllerPassword()
 
         # title frame
         self.title_frame = Frame(main)
@@ -144,6 +149,17 @@ class PasswordGenerator:
         self._password.up_case = boolean[self.value_check_up_case.get()]
         self._password.special_char_1 = boolean[self.value_check_special_one.get()]
         self._password.special_char_2 = boolean[self.value_check_special_two.get()]
+
+        try:
+            new_password = self._controller_password.generate_password(password=self._password)
+
+            self.entry_passwd.delete(0, "end")
+
+            self.entry_passwd.insert(0, new_password)
+        except PasswordCheckerException as ex:
+            message = ex.args[0]
+
+            showerror(title="Error to Generate Password", message=message.capitalize())
 
     def _copy_to_transfer_area(self, event) -> None:
         content_password = self.entry_passwd.get()
