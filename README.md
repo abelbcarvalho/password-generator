@@ -10,10 +10,13 @@ Generate strong passwords.
 5. [How It Works?](#how-it-works)
 6. [System Steps](#system-steps)
 7. [Possible Questions](#possible-questions)
-8. [The End](#the-end)
+8. [Appearance](#appearance)
+9. [The End](#the-end)
 
 ### Description
 *This software has the intent of generate strong passwords to you set into the register of web services. You just need to set your options, then our system will take your information to generate random passwords and set it to the clipboard area.*
+
+*It is a Desktop application, so you can find it appearance [here](#appearance).*
 
 ### Valid Characters
 The generated password can contain:
@@ -155,6 +158,11 @@ A resume of [*how it works?*](#how-it-works)
       For RHEL, CentOS, Oracle Linux: <code>sudo yum install -y tkinter tk-devel</code>
    </p>
 </details>
+
+### Appearance
+Look at the software appearance window here.
+
+![password generator image](https://github.com/abelbcarvalho/images-software/blob/main/images/password-generator-1.png)
 
 ### The End
 It's a simple project task to make an useful software.
