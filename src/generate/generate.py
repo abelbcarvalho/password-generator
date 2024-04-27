@@ -1,6 +1,8 @@
 from typing import Generator, Any
+from random import choice
 
 from src.model.password import Password
+from src.utility.password_utility import get_not_none_keys
 
 
 class Generate:
@@ -17,16 +19,24 @@ class Generate:
         self._special_char_1 = (v for v in "!#$%&()*+,-./:;=?@[]{|}")
         self._special_char_2 = (v for v in "<>^~¢£§¬")
 
-    def _get_not_none_keys(self, password: Password) -> Generator[str, Any, None]:
-        not_none_keys = {
-            "numbers": password.numbers,
-            "low_case": password.low_case,
-            "up_case": password.up_case,
-            "special_char_1": password.special_char_1,
-            "special_char_2": password.special_char_2,
+    def generate_password(self, password: Password) -> str | None:
+        data_to_select: dict = {
+            "numbers": tuple(v for v in self._numbers),
+            "low_case": tuple(v for v in self._low_case),
+            "up_case": tuple(v for v in self._up_case),
+            "special_char_1": tuple(v for v in self._special_char_1),
+            "special_char_2": tuple(v for v in self._special_char_2),
         }
 
-        return (v for v in not_none_keys.keys() if not_none_keys[v] is True)
+        valid_keys: tuple = tuple(v for v in get_not_none_keys(password))
 
-    def generate_password(self, password: Password) -> str | None:
-        return None
+        new_password: str = ""
+
+        for _ in range(password.length):
+            chosen_key: str = choice(valid_keys)
+
+            chosen_value: str = choice(data_to_select.get(chosen_key))
+
+            new_password += chosen_value
+
+        return new_password
