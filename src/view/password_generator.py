@@ -41,6 +41,7 @@ class PasswordGenerator:
         red = "#ff0000"
         dark_blue = "#000044"
         black = "#000000"
+        gold = "#ffd700"
 
         # window create
         main.title("Password Generator")
@@ -79,6 +80,7 @@ class PasswordGenerator:
         self.scale_length["length"] = 360
         self.scale_length["bg"] = white
         self.scale_length["highlightbackground"] = white
+        self.scale_length["troughcolor"] = gold
         self.scale_length.pack()
 
         # variables check buttons
@@ -100,6 +102,7 @@ class PasswordGenerator:
         self.check_numbers["variable"] = self.value_check_numbers
         self.check_numbers["bg"] = white
         self.check_numbers["highlightbackground"] = white
+        self.check_numbers["activebackground"] = gold
         self.check_numbers.pack()
 
         self.check_low_case = Checkbutton(self.character_frame)
@@ -109,6 +112,7 @@ class PasswordGenerator:
         self.check_low_case["variable"] = self.value_check_low_case
         self.check_low_case["bg"] = white
         self.check_low_case["highlightbackground"] = white
+        self.check_low_case["activebackground"] = gold
         self.check_low_case.pack()
 
         self.check_up_case = Checkbutton(self.character_frame)
@@ -118,6 +122,7 @@ class PasswordGenerator:
         self.check_up_case["variable"] = self.value_check_up_case
         self.check_up_case["bg"] = white
         self.check_up_case["highlightbackground"] = white
+        self.check_up_case["activebackground"] = gold
         self.check_up_case.pack()
 
         self.check_special_one = Checkbutton(self.character_frame)
@@ -127,6 +132,7 @@ class PasswordGenerator:
         self.check_special_one["variable"] = self.value_check_special_one
         self.check_special_one["bg"] = white
         self.check_special_one["highlightbackground"] = white
+        self.check_special_one["activebackground"] = gold
         self.check_special_one.pack()
 
         self.check_special_two = Checkbutton(self.character_frame)
@@ -136,6 +142,7 @@ class PasswordGenerator:
         self.check_special_two["variable"] = self.value_check_special_two
         self.check_special_two["bg"] = white
         self.check_special_two["highlightbackground"] = white
+        self.check_special_two["activebackground"] = gold
         self.check_special_two.pack()
 
         # entry field with the generated password
