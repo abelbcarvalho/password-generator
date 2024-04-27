@@ -169,6 +169,9 @@ class PasswordGenerator:
         self.button_generate["width"] = 20
         self.button_generate["bg"] = dark_blue
         self.button_generate["fg"] = white
+        self.button_generate["border"] = 0
+        self.button_generate["activebackground"] = gold
+        self.button_generate["activeforeground"] = black
         self.button_generate.bind("<Button-1>", self._generate_password)
         self.button_generate.pack(side=LEFT, padx=5)
 
@@ -178,6 +181,9 @@ class PasswordGenerator:
         self.button_copy["width"] = 20
         self.button_copy["bg"] = red
         self.button_copy["fg"] = white
+        self.button_copy["border"] = 0
+        self.button_copy["activebackground"] = gold
+        self.button_copy["activeforeground"] = black
         self.button_copy.bind("<Button-1>", self._copy_to_transfer_area)
         self.button_copy.pack(side=LEFT, padx=5)
 
