@@ -28,7 +28,7 @@ The generated password can contain:
 3. Clipboard;
 4. Tkinter;
 
-> **NOTE:** The project dependencies list can be found on the file [requirements.txt](#)
+> **NOTE:** The project dependencies list can be found on the file [requirements.txt](requirements.txt)
 
 To install the requirement.txt file, just type or paste it on a Terminal window:
 
