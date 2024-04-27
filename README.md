@@ -8,7 +8,8 @@ Generate strong passwords.
 3. [Model Structure](#model-structure)
 4. [How It Works?](#how-it-works)
 5. [System Steps](#system-steps)
-6. [The End](#the-end)
+6. [Possible Questions](#possible-questions)
+7. [The End](#the-end)
 
 ### Description
 *This software has the intent of generate strong passwords to you set into the register of web services. You just need to set your options, then our system will take your information to generate random passwords and set it to the clipboard area.*
@@ -31,6 +32,9 @@ The generated password can contain:
 > **NOTE:** The project dependencies list can be found on the file [requirements.txt](requirements.txt)
 
 To install the requirement.txt file, just type or paste it on a Terminal window:
+
+**Have a problem?** Please visite the section of [questions](#possible-questions) here. Possible cases are about the
+*tkinter* and *clipboard* libraries, mainly referring to *linux operating system*.
 
 ```commandline
 pip install -r requirement.txt
@@ -78,6 +82,51 @@ A resume of [*how it works?*](#how-it-works)
 4. Transfer to *clipboard* area;
 5. Return the generated password;
 6. Let it be seen by user;
+
+### Possible Questions
+
+<details>
+   <summary>
+      Clipboard Library Problem?
+   </summary>
+   <p>
+      You may get an error message that says: “Pyperclip could not find a copy/paste mechanism for your system. Please see <a target="_blank" href="https://pyperclip.readthedocs.io/en/latest/introduction.html#not-implemented-error">clipboard library docs</a> for how to fix this.”
+   </p>
+   <p>
+      In order to work equally well on Windows, Mac, and Linux, Pyperclip uses various mechanisms to do this. Currently, this error should only appear on Linux (not Windows or Mac). You can fix this by installing one of the copy/paste mechanisms:
+   </p>
+   <p>
+      <ul>
+         <li><code>sudo apt install xsel</code> to install the xsel utility.</li>
+         <li><code>sudo apt install xclip</code> to install the xclip utility.</li>
+         <li><code>pip install gtk</code> to install the gtk Python module.</li>
+         <li><code>pip install PyQt4</code> to install the PyQt4 Python module.</li>
+      </ul>
+   <p>
+      Fonte: <a href="https://pyperclip.readthedocs.io/en/latest/index.html#not-implemented-error" target="_blank">Pyperclip</a>
+   </p>
+</details>
+
+<details>
+   <summary>
+      Not Tkinter Found?
+   </summary>
+   <p>
+      ** Microsoft Windows and Apple macOS haven't that problem because the Python Installer contains it.
+   </p>
+   <p>
+      For Debian-based Linux: <code>sudo apt install python3-tk</code>
+   </p>
+   <p>
+      For Fedora-based Linux: <code>sudo dnf install python3-tkinter</code>
+   </p>
+   <p>
+      For Arch-based Distros: <code>sudo pacman -S tk</code>
+   </p>
+   <p>
+      For RHEL, CentOS, Oracle Linux: <code>sudo yum install -y tkinter tk-devel</code>
+   </p>
+</details>
 
 ### The End
 It's a simple project task to make an useful software.
