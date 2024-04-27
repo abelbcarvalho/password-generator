@@ -28,9 +28,19 @@ class PasswordGenerator:
     _controller_password: ControllerPassword
 
     def __init__(self, main: Tk):
+        font_title = ("Arial", 20, "bold")
         font_regular = ("Arial", 14)
-        length = 80
+        font_regular_bold = ("Arial", 14, "bold")
 
+        length = 80
+        length_checkbox = 360
+
+        # colors
+        white = "#ffffff"
+        red = "#ff0000"
+        dark_blue = "#000044"
+
+        # window create
         main.title("Password Generator")
         main.geometry("720x360")
         main.resizable(False, False)
@@ -45,7 +55,7 @@ class PasswordGenerator:
 
         self.title_label = Label(self.title_frame)
         self.title_label["text"] = "Password Generator"
-        self.title_label["font"] = ("Arial", 20, "bold")
+        self.title_label["font"] = font_title
         self.title_label.pack()
 
         # length size
@@ -61,48 +71,49 @@ class PasswordGenerator:
         self.scale_length["length"] = 360
         self.scale_length.pack()
 
-        # choose characters
-        self.character_frame = Frame(main)
-        self.character_frame.pack()
-
+        # variables check buttons
         self.value_check_numbers = IntVar()
         self.value_check_low_case = IntVar()
         self.value_check_up_case = IntVar()
         self.value_check_special_one = IntVar()
         self.value_check_special_two = IntVar()
 
+        # choose characters # check buttons
+        self.character_frame = Frame(main)
+        self.character_frame.pack()
+
         self.check_numbers = Checkbutton(self.character_frame)
         self.check_numbers["text"] = "Numbers: 0 ... 9                                "
         self.check_numbers["font"] = font_regular
-        self.check_numbers["width"] = 360
+        self.check_numbers["width"] = length_checkbox
         self.check_numbers["variable"] = self.value_check_numbers
         self.check_numbers.pack()
 
         self.check_low_case = Checkbutton(self.character_frame)
         self.check_low_case["text"] = "Lowercase: a ... z                              "
         self.check_low_case["font"] = font_regular
-        self.check_low_case["width"] = 360
+        self.check_low_case["width"] = length_checkbox
         self.check_low_case["variable"] = self.value_check_low_case
         self.check_low_case.pack()
 
         self.check_up_case = Checkbutton(self.character_frame)
         self.check_up_case["text"] = "Uppercase: A ... Z                             "
         self.check_up_case["font"] = font_regular
-        self.check_up_case["width"] = 360
+        self.check_up_case["width"] = length_checkbox
         self.check_up_case["variable"] = self.value_check_up_case
         self.check_up_case.pack()
 
         self.check_special_one = Checkbutton(self.character_frame)
         self.check_special_one["text"] = "Special One: !#$%&()*+,-./:;=?@[]{|}"
         self.check_special_one["font"] = font_regular
-        self.check_special_one["width"] = 360
+        self.check_special_one["width"] = length_checkbox
         self.check_special_one["variable"] = self.value_check_special_one
         self.check_special_one.pack()
 
         self.check_special_two = Checkbutton(self.character_frame)
         self.check_special_two["text"] = "Special Two: <>^~¢£§¬                    "
         self.check_special_two["font"] = font_regular
-        self.check_special_two["width"] = 360
+        self.check_special_two["width"] = length_checkbox
         self.check_special_two["variable"] = self.value_check_special_two
         self.check_special_two.pack()
 
@@ -120,19 +131,19 @@ class PasswordGenerator:
 
         self.button_generate = Button(self.button_frame)
         self.button_generate["text"] = "Generate"
-        self.button_generate["font"] = font_regular + ("bold",)
+        self.button_generate["font"] = font_regular_bold
         self.button_generate["width"] = 20
-        self.button_generate["bg"] = "#000044"
-        self.button_generate["fg"] = "#ffffff"
+        self.button_generate["bg"] = dark_blue
+        self.button_generate["fg"] = white
         self.button_generate.bind("<Button-1>", self._generate_password)
         self.button_generate.pack(side=LEFT, padx=5)
 
         self.button_copy = Button(self.button_frame)
         self.button_copy["text"] = "Copy"
-        self.button_copy["font"] = font_regular + ("bold", )
+        self.button_copy["font"] = font_regular_bold
         self.button_copy["width"] = 20
-        self.button_copy["bg"] = "#ff0000"
-        self.button_copy["fg"] = "#ffffff"
+        self.button_copy["bg"] = red
+        self.button_copy["fg"] = white
         self.button_copy.bind("<Button-1>", self._copy_to_transfer_area)
         self.button_copy.pack(side=LEFT, padx=5)
 
