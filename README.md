@@ -5,11 +5,12 @@ Generate strong passwords.
 1. [Description](#description)
 2. [Valid Characters](#valid-characters)
 2. [Dependencies](#dependencies)
-3. [Model Structure](#model-structure)
-4. [How It Works?](#how-it-works)
-5. [System Steps](#system-steps)
-6. [Possible Questions](#possible-questions)
-7. [The End](#the-end)
+3. [How To Run?](#how-to-run)
+4. [Model Structure](#model-structure)
+5. [How It Works?](#how-it-works)
+6. [System Steps](#system-steps)
+7. [Possible Questions](#possible-questions)
+8. [The End](#the-end)
 
 ### Description
 *This software has the intent of generate strong passwords to you set into the register of web services. You just need to set your options, then our system will take your information to generate random passwords and set it to the clipboard area.*
@@ -39,6 +40,33 @@ To install the requirement.txt file, just type or paste it on a Terminal window:
 ```commandline
 pip install -r requirement.txt
 ```
+
+### How To Run?
+Please review the last Chapter *Dependencies* and install them all. If it ran successfully, you are ready to run.
+
+To make it, just run the file: [`app.py`](/app.py). It is configured.
+
+On the root directory [here](/) of that project, just type:
+
+For Windows:
+
+```commandline
+py app.py
+```
+
+For MacOS:
+
+```commandline
+python app.py
+```
+
+For Linux Distros:
+
+```commandline
+python3 app.py
+```
+
+**If you find a problem**, review [dependencies](#dependencies) chapter.
 
 ### Model Structure
 Here you can see the class structure to send data to back-end.
