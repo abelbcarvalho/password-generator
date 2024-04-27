@@ -156,6 +156,9 @@ class PasswordGenerator:
         self.entry_passwd["bg"] = white
         self.entry_passwd["highlightbackground"] = black
         self.entry_passwd["highlightcolor"] = black
+        self.entry_passwd["selectbackground"] = gold
+        self.entry_passwd["selectforeground"] = black
+        self.entry_passwd["border"] = 0
         self.entry_passwd.pack(pady=20)
 
         # buttons
